@@ -13,6 +13,10 @@
 /** Setup and Teardown per test group (optional) */
 TEST_GROUP(Money)
 {
+	void setup()
+	{
+
+	}
 	void teardown()
 	{
 	}
@@ -21,7 +25,13 @@ TEST_GROUP(Money)
 
 TEST(Money, TestMultiplication)
 {
+	int ans;
 	Dollar five(5);
-	five.times(2);
-	CHECK_EQUAL(10, five.amount);
+	Dollar product(5);
+	product = five.times(2);
+	ans = product.amount;
+	CHECK_EQUAL(10, ans);
+	product = five.times(3);
+	ans = product.amount;
+	CHECK_EQUAL(15, ans);
 }

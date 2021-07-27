@@ -12,7 +12,7 @@ Dollar::Dollar(int amount) {
 }
 
 
-void Dollar::times(int multiplier) {
-	amount *=multiplier;
+Dollar Dollar::times(int multiplier) {
+	return *new Dollar(amount * multiplier);
 }
 
