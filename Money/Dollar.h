@@ -13,6 +13,7 @@ public:
 	int amount;
 	Dollar(int amount);
 	Dollar times(int multiplier);
+	bool equals(Dollar object);
 };
 
 #endif /* MONEY_DOLLAR_H_ */

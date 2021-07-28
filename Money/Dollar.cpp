@@ -16,3 +16,6 @@ Dollar Dollar::times(int multiplier) {
 	return *new Dollar(amount * multiplier);
 }
 
+bool Dollar::equals(Dollar object){
+	return amount == object.amount;
+}

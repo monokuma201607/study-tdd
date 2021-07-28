@@ -35,3 +35,12 @@ TEST(Money, TestMultiplication)
 	ans = product.amount;
 	CHECK_EQUAL(15, ans);
 }
+
+TEST(Money, TestEquality)
+{
+	Dollar *five = new Dollar(5);
+	Dollar *product = new Dollar(6);
+	Dollar *product1 = new Dollar(5);
+	CHECK_TRUE(five->equals(*product1));
+	CHECK_FALSE(five->equals(*product));
+}
