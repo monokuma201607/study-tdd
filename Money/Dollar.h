@@ -9,11 +9,17 @@
 #define MONEY_DOLLAR_H_
 
 class Dollar {
-public:
+private:
 	int amount;
+public:
 	Dollar(int amount);
 	Dollar times(int multiplier);
 	bool equals(Dollar object);
+	bool operator==(Dollar object)
+		{
+			bool ret = object.amount==this->amount;
+			return ret;
+		}
 };
 
 #endif /* MONEY_DOLLAR_H_ */

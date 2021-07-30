@@ -19,3 +19,4 @@ Dollar Dollar::times(int multiplier) {
 bool Dollar::equals(Dollar object){
 	return amount == object.amount;
 }
+
