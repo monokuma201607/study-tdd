@@ -22,4 +22,18 @@ public:
 		}
 };
 
+class Franc {
+private:
+	int amount;
+public:
+	Franc(int amount);
+	Franc times(int multiplier);
+	bool equals(Franc object);
+	bool operator==(Franc object)
+		{
+			bool ret = object.amount==this->amount;
+			return ret;
+		}
+};
+
 #endif /* MONEY_DOLLAR_H_ */

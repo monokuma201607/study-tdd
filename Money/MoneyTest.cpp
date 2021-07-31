@@ -39,3 +39,12 @@ TEST(Money, TestEquality)
 	CHECK_TRUE(five->equals(*test_five));
 	CHECK_FALSE(five->equals(*six));
 }
+
+TEST(Money, TestFranMultiplication)
+{
+	Franc five = *(new Franc(5));
+	bool bIsSame = *(new Franc(10)) == five.times(2);
+	CHECK_TRUE(bIsSame);
+	bIsSame = *(new Franc(15)) == five.times(3);
+	CHECK_TRUE(bIsSame);
+}
