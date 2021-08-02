@@ -8,7 +8,9 @@
 
 #include "CppUTest/TestHarness.h"
 #include "CppUTestExt/MockSupport.h"
+#include "Money.h"
 #include "Dollar.h"
+#include "Franc.h"
 
 /** Setup and Teardown per test group (optional) */
 TEST_GROUP(Money)
@@ -36,6 +38,15 @@ TEST(Money, TestEquality)
 	Dollar *five = new Dollar(5);
 	Dollar *six = new Dollar(6);
 	Dollar *test_five = new Dollar(5);
+	CHECK_TRUE(five->equals(*test_five));
+	CHECK_FALSE(five->equals(*six));
+}
+
+TEST(Money, TestEquality_for_Fran)
+{
+	Franc *five = new Franc(5);
+	Franc *six = new Franc(6);
+	Franc *test_five = new Franc(5);
 	CHECK_TRUE(five->equals(*test_five));
 	CHECK_FALSE(five->equals(*six));
 }
