@@ -33,22 +33,39 @@ TEST(Money, TestMultiplication)
 	CHECK_TRUE(bIsSame);
 }
 
-TEST(Money, TestEquality)
+TEST(Money, TestEquality_DollarTrue)
+{
+	Dollar *five = new Dollar(5);
+	Dollar *test_five = new Dollar(5);
+	CHECK_TRUE(five->equals(*test_five));
+}
+
+TEST(Money, TestEquality_DollarFaulse)
 {
 	Dollar *five = new Dollar(5);
 	Dollar *six = new Dollar(6);
-	Dollar *test_five = new Dollar(5);
-	CHECK_TRUE(five->equals(*test_five));
 	CHECK_FALSE(five->equals(*six));
 }
 
-TEST(Money, TestEquality_for_Fran)
+TEST(Money, TestEquality_for_FranTrue)
+{
+	Franc *five = new Franc(5);
+	Franc *test_five = new Franc(5);
+	CHECK_TRUE(five->equals(*test_five));
+}
+
+TEST(Money, TestEquality_for_FranFaulse)
 {
 	Franc *five = new Franc(5);
 	Franc *six = new Franc(6);
-	Franc *test_five = new Franc(5);
-	CHECK_TRUE(five->equals(*test_five));
 	CHECK_FALSE(five->equals(*six));
+}
+
+TEST(Money, TestEquality_DollarandFranc)
+{
+	Franc *five = new Franc(5);
+	Dollar *test_five = new Dollar(5);
+	CHECK_FALSE(five->equals(*test_five));
 }
 
 TEST(Money, TestFranMultiplication)
