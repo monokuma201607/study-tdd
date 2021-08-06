@@ -9,10 +9,11 @@
 #define STUDY_TDD_MONEY_MONEY_H_
 
 class Money{
+public:
+	virtual ~Money(){}
+	bool equals(const Money *money) const;
 protected:
 	int amount;
-public:
-	bool equals(Money object);
 };
 
 
