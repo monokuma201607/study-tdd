@@ -28,10 +28,10 @@ TEST_GROUP(Money)
 
 TEST(Money, TestMultiplication)
 {
-	Dollar five = *(new Dollar(5));
-	bool bIsSame = *(new Dollar(10)) == five.times(2);
+	Dollar *five = new Dollar(5);
+	bool bIsSame = *(new Dollar(10)) == five->times(2);
 	CHECK_TRUE(bIsSame);
-	bIsSame = *(new Dollar(15)) == five.times(3);
+	bIsSame = *(new Dollar(15)) == five->times(3);
 	CHECK_TRUE(bIsSame);
 }
 
