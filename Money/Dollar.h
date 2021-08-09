@@ -13,12 +13,7 @@
 class Dollar : public Money{
 public:
 	Dollar(int amount);
-	Dollar times(int multiplier);
-	bool operator==(Dollar object)
-		{
-			bool ret = object.amount==this->amount;
-			return ret;
-		}
+	Money times(int multiplier);
 };
 
 #endif /* MONEY_DOLLAR_H_ */

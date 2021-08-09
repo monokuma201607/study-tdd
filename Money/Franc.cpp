@@ -14,6 +14,6 @@ Franc::Franc(int amount) {
 }
 
 
-Franc Franc::times(int multiplier) {
+Money Franc::times(int multiplier) {
 	return *new Franc(amount * multiplier);
 }

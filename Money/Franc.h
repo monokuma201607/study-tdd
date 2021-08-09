@@ -14,12 +14,7 @@
 class Franc : public Money {
 public:
 	Franc(int amount);
-	Franc times(int multiplier);
-	bool operator==(Franc object)
-		{
-			bool ret = object.amount==this->amount;
-			return ret;
-		}
+	Money times(int multiplier);
 };
 
 #endif /* STUDY_TDD_MONEY_FRANC_H_ */

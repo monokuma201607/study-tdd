@@ -6,7 +6,8 @@
  */
 
 #include "Money.h"
-
+#include "Dollar.h"
+#include "Franc.h"
 #include <iostream>
 #include <typeinfo>
 #include <cxxabi.h>
@@ -30,5 +31,10 @@ bool Money::equals(const Money* money) const{
 }
 
 
+Money dollar(int amount){
+	return *(new Dollar(amount));
+}
 
-
+static Money franc(int amount){
+	return *(new Franc(amount));
+}
