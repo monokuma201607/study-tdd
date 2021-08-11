@@ -13,7 +13,8 @@
 class Dollar : public Money{
 public:
 	Dollar(int amount);
-	Money times(int multiplier);
+	virtual ~Dollar(){}
+	Money * times(int multiplier);
 };
 
 #endif /* MONEY_DOLLAR_H_ */

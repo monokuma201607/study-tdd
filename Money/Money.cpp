@@ -31,10 +31,10 @@ bool Money::equals(const Money* money) const{
 }
 
 
-Money dollar(int amount){
-	return *(new Dollar(amount));
+Money *dollar(int amount){
+	return (new Dollar(amount));
 }
 
-static Money franc(int amount){
-	return *(new Franc(amount));
+Money *franc(int amount){
+	return (new Franc(amount));
 }

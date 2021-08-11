@@ -12,16 +12,14 @@ class Money{
 public:
 	virtual ~Money(){}
 	bool equals(const Money *money) const;
-	bool operator==(Money object)
+	virtual Money* times(int multiplier)=0;
+	bool operator==(Money *object)
 		{
-			bool ret = object.amount==this->amount;
+			bool ret = object->amount==this->amount;
 			return ret;
 		}
 protected:
 	int amount;
-static
-	Money dollar(int amount);
-	Money franc(int amount);
 };
 
 

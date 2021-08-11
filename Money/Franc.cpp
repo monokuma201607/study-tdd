@@ -13,7 +13,6 @@ Franc::Franc(int amount) {
 	this->amount = amount;
 }
 
-
-Money Franc::times(int multiplier) {
-	return *new Franc(amount * multiplier);
+Money *Franc::times(int multiplier) {
+	return new Franc(amount * multiplier);
 }

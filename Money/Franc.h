@@ -14,7 +14,8 @@
 class Franc : public Money {
 public:
 	Franc(int amount);
-	Money times(int multiplier);
+	virtual ~Franc(){}
+	Money * times(int multiplier);
 };
 
 #endif /* STUDY_TDD_MONEY_FRANC_H_ */
