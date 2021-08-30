@@ -30,8 +30,8 @@ TEST_GROUP(Money)
 TEST(Money, TestMultiplication_dollarTest)
 {
 	std::shared_ptr<Money> five = Money::dollar(5);
-	CHECK(Money::dollar(10) ->equals(five->times(2)));
-	CHECK(Money::dollar(15) ->equals(five->times(3)));
+	CHECK(Money::dollar(10)->equals(five->times(2)));
+	CHECK(Money::dollar(15)->equals(five->times(3)));
 }
 
 TEST(Money, TestMultiplication_FrancTest)
@@ -67,3 +67,8 @@ TEST(Money, TestEquality_DollarandFranc_test)
 	CHECK_FALSE(bIsSame);
 }
 
+TEST(Money, TestCurrency)
+{
+	CHECK_EQUAL("USD",Money::dollar(1)->currency());
+	CHECK_EQUAL("CHF",Money::franc(1)->currency());
+}
