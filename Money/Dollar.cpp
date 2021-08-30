@@ -7,6 +7,7 @@
 
 #include "Dollar.h"
 
+#if 0
 Dollar::Dollar(int amount) {
 	this->amount = amount;
 }
@@ -15,3 +16,4 @@ Dollar::Dollar(int amount) {
 Money *Dollar::times(int multiplier) {
 	return new Dollar(amount * multiplier);
 }
+#endif

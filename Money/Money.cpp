@@ -16,8 +16,11 @@ char* demangle(const char *demangle) {
     int status;
     return abi::__cxa_demangle(demangle, 0, 0, &status);
 }
-
-
+bool Money::equals(std::shared_ptr<Money> money){
+	 return amount == money->amount &&
+	    (typeid(*this) == typeid(*money));
+}
+#if 0
 bool Money::equals(const Money* money) const{
 #if 0
   std::cout << "EQUALS" << std::endl;
@@ -29,12 +32,12 @@ bool Money::equals(const Money* money) const{
   return amount == money->amount &&
     typeid(*this) == typeid(*money);
 }
-
-
-Money *dollar(int amount){
-	return (new Dollar(amount));
+#endif
+std::shared_ptr<Money> Money::dollar(const int amount) {
+	return std::shared_ptr<Money>(new Dollar(amount));
 }
 
-Money *franc(int amount){
-	return (new Franc(amount));
+std::shared_ptr<Money> Money::franc(const int amount) {
+	return std::shared_ptr<Money>(new Franc(amount));
 }
+

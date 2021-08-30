@@ -26,74 +26,44 @@ TEST_GROUP(Money)
 	}
 };
 
-TEST(Money, TestMultiplication)
+
+TEST(Money, TestMultiplication_dollarTest)
 {
-	Dollar *five = new Dollar(5);
-	bool bIsSame = *(new Dollar(10)) == five->times(2);
+	std::shared_ptr<Money> five = Money::dollar(5);
+	CHECK(Money::dollar(10) ->equals(five->times(2)));
+	CHECK(Money::dollar(15) ->equals(five->times(3)));
+}
+
+TEST(Money, TestMultiplication_FrancTest)
+{
+	std::shared_ptr<Money> five = Money::franc(5);
+	CHECK(Money::franc(10) ->equals(five->times(2)));
+	CHECK(Money::franc(15) ->equals(five->times(3)));
+}
+
+TEST(Money, TestEquality_Dollar_test)
+{
+	std::shared_ptr<Dollar> dollar(new Dollar(10));
+	bool bIsSame = Money::dollar(5)->equals(Money::dollar(5));
 	CHECK_TRUE(bIsSame);
-	bIsSame = *(new Dollar(15)) == five->times(3);
-	CHECK_TRUE(bIsSame);
-}
-
-TEST(Money, TestEquality_DollarTrue)
-{
-	Dollar *five = new Dollar(5);
-	Dollar *test_five = new Dollar(5);
-	bool bIsSame = five->equals(test_five);
-	CHECK_TRUE(bIsSame);
-}
-
-TEST(Money, TestEquality_DollarFaulse)
-{
-	Dollar *five = new Dollar(5);
-	Dollar *six = new Dollar(6);
-	CHECK_FALSE(five->equals(six));
-}
-
-TEST(Money, TestEquality_for_FranTrue)
-{
-	Franc *five = new Franc(5);
-	Franc *test_five = new Franc(5);
-	CHECK_TRUE(five->equals(test_five));
-}
-
-TEST(Money, TestEquality_for_FranFaulse)
-{
-	Franc *five = new Franc(5);
-	Franc *six = new Franc(6);
-	bool bIsSame = five->equals(six);
+	bIsSame = Money::dollar(5)->equals(Money::dollar(6));
 	CHECK_FALSE(bIsSame);
 }
 
-TEST(Money, TestEquality_DollarandFranc)
+TEST(Money, TestEquality_Franc_test)
 {
-	Franc *five = new Franc(5);
-	Dollar *test_five = new Dollar(5);
-	bool bIsSame = five->equals(test_five);
+	std::shared_ptr<Dollar> franc(new Dollar(10));
+	bool bIsSame = Money::franc(5)->equals(Money::franc(5));
+	CHECK_TRUE(bIsSame);
+	bIsSame = Money::franc(5)->equals(Money::franc(6));
 	CHECK_FALSE(bIsSame);
 }
-
 
 TEST(Money, TestEquality_DollarandFranc_test)
 {
 	std::shared_ptr<Dollar> dollar(new Dollar(10));
 	std::shared_ptr<Franc> franc(new Franc(10));
-#if 0
-	std::cout << "MAIN" << std::endl;
-	std::cout << "dollar : " << typeid(dollar.get()).name() << std::endl;
-	std::cout << "franc  : " << typeid(franc.get()).name()  << std::endl;
-	std::cout << "*dollar : " << typeid(*dollar.get()).name() << std::endl;
-	std::cout << "*franc  : " << typeid(*franc.get()).name()  << std::endl;
-#endif
-	bool bIsSame = dollar->equals(franc.get());;
+	bool bIsSame = Money::franc(5)->equals(Money::dollar(5));
 	CHECK_FALSE(bIsSame);
 }
 
-TEST(Money, TestFranMultiplication)
-{
-	Franc five = *(new Franc(5));
-	bool bIsSame = *(new Franc(10)) == five.times(2);
-	CHECK_TRUE(bIsSame);
-	bIsSame = *(new Franc(15)) == five.times(3);
-	CHECK_TRUE(bIsSame);
-}

@@ -8,7 +8,7 @@
 
 
 #include "Franc.h"
-
+#if 0
 Franc::Franc(int amount) {
 	this->amount = amount;
 }
@@ -16,3 +16,4 @@ Franc::Franc(int amount) {
 Money *Franc::times(int multiplier) {
 	return new Franc(amount * multiplier);
 }
+#endif
