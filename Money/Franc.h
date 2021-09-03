@@ -12,10 +12,7 @@
 
 class Franc : public Money {
 public:
-	Franc(int amount) : Money(amount,"CHF"){
-		};
 	virtual ~Franc(){};
-
 };
 
 #endif /* STUDY_TDD_MONEY_FRANC_H_ */

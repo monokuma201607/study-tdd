@@ -43,7 +43,6 @@ TEST(Money, TestMultiplication_FrancTest)
 
 TEST(Money, TestEquality_Dollar_test)
 {
-	std::shared_ptr<Dollar> dollar(new Dollar(10));
 	bool bIsSame = Money::dollar(5)->equals(Money::dollar(5));
 	CHECK_TRUE(bIsSame);
 	bIsSame = Money::dollar(5)->equals(Money::dollar(6));
@@ -52,7 +51,6 @@ TEST(Money, TestEquality_Dollar_test)
 
 TEST(Money, TestEquality_Franc_test)
 {
-	std::shared_ptr<Dollar> franc(new Dollar(10));
 	bool bIsSame = Money::franc(5)->equals(Money::franc(5));
 	CHECK_TRUE(bIsSame);
 	bIsSame = Money::franc(5)->equals(Money::franc(6));
@@ -61,8 +59,6 @@ TEST(Money, TestEquality_Franc_test)
 
 TEST(Money, TestEquality_DollarandFranc_test)
 {
-	std::shared_ptr<Dollar> dollar(new Dollar(10));
-	std::shared_ptr<Franc> franc(new Franc(10));
 	bool bIsSame = Money::franc(5)->equals(Money::dollar(5));
 	CHECK_FALSE(bIsSame);
 }
